@@ -76,7 +76,7 @@ export default function BookingModal({ open, onClose }: BookingModalProps) {
     if (!selectedService || !selectedDate || !selectedTime || !barbeiros[0]) return
     setLoading(true)
     const data = `${calYear}-${String(calMonth + 1).padStart(2, '0')}-${String(selectedDate).padStart(2, '0')}`
-    const data_hora = `${data}T${selectedTime}:00`
+    const data_hora = `${data}T${selectedTime}:00-04:00`
     const res = await fetch('/api/agendamentos', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
