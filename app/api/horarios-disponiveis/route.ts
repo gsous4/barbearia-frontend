@@ -38,7 +38,7 @@ export async function GET(request: Request) {
   const horariosDisponiveis: string[] = []
   const dataBase = new Date(`${data}T00:00:00`)
 
-  for (let hora = inicio * 60; hora + duracaoMinutos <= fim * 60; hora += 5) {
+ for (let hora = inicio * 60; hora + duracaoMinutos <= fim * 60; hora += duracaoMinutos) {
     const slotInicio = new Date(dataBase.getTime() + hora * 60000)
     const slotFim = new Date(slotInicio.getTime() + duracaoMinutos * 60000)
 
